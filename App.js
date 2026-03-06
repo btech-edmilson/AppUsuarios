@@ -12,8 +12,8 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [editando, setEditando] = useState(null);
 
-  const API_LISTA = 'http://esbsouza.com.br/ag1/?fn=sread';
-  const API_UPDATE = 'http://esbsouza.com.br/ag1/?fn=supdate';
+  const API_LISTA = 'https://esbsouza.com.br/ag1/?fn=sread';
+  const API_UPDATE = 'https://esbsouza.com.br/ag1/?fn=supdate';
 
   const carregarUsuarios = async (isRefresh = false) => {
     if (isRefresh) setAtualizando(true);

@@ -1,50 +1,109 @@
-# Welcome to your Expo app 👋
+# 📱 AppUsuarios — BTech
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Aplicativo mobile para gerenciamento de usuários/clientes, desenvolvido com React Native + Expo.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Funcionalidades
 
-   ```bash
-   npm install
-   ```
+- 👥 **Listagem de clientes** — exibe todos os clientes cadastrados
+- 🔍 **Busca incremental** — filtra clientes em tempo real a partir da 1ª letra digitada
+- ➕ **Cadastro de clientes** — formulário completo com nome, celular, CEP, bairro, valor e status
+- ✏️ **Edição de clientes** — edita qualquer informação do cliente
+- 🗑️ **Exclusão de clientes** — remove clientes com confirmação
+- 🎛️ **Filtro por status** — filtra entre Todos, Ativos e Inativos
+- 📂 **Menu drawer lateral** — menu deslizante pela direita com acesso rápido às funções
+- 🔄 **Atualização por pull-to-refresh** — puxa a lista para baixo para recarregar
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🎨 Identidade Visual
 
-In the output, you'll find options to open the app in a
+- Cores: Azul escuro `#1a3a5c` + Verde `#7ac231`
+- Logo: BTech — exibido no header, splash screen e ícone do app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Tecnologias
 
-## Get a fresh project
+- [React Native](https://reactnative.dev/)
+- [Expo SDK 54](https://expo.dev/)
+- [Expo Router](https://expo.github.io/router/)
+- [EAS Build](https://docs.expo.dev/build/introduction/) — geração do APK
+- [Axios](https://axios-http.com/) — requisições HTTP
+- [@react-native-picker/picker](https://github.com/react-native-picker/picker)
+- [@expo/vector-icons](https://docs.expo.dev/guides/icons/)
 
-When you're ready, run:
+---
 
+## ⚙️ Como rodar o projeto
+
+**1. Instalar dependências**
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**2. Corrigir compatibilidade das bibliotecas**
+```bash
+npx expo install --fix
+```
 
-## Learn more
+**3. Iniciar o app**
+```bash
+npx expo start --clear
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+**4. Abrir no celular**
+- Instale o **Expo Go** no celular
+- Escaneie o QR code que aparece no terminal
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 📦 Gerar APK (Android)
 
-Join our community of developers creating universal apps.
+```bash
+$env:EAS_NO_VCS=1; eas build -p android --profile preview
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+> O APK é gerado na nuvem pelo EAS Build. Acompanhe em [expo.dev](https://expo.dev).
+
+---
+
+## 📁 Estrutura do projeto
+
+```
+AppUsuarios/
+├── app/
+│   ├── index.tsx          # Tela principal
+│   ├── _layout.tsx        # Layout raiz com providers
+│   └── context/
+│       └── FiltroContext.tsx  # Contexto do filtro de status
+├── assets/
+│   └── images/
+│       ├── LogoG1.png         # Ícone e splash screen
+│       └── LogoG1-512.png     # Adaptive icon Android
+├── app.json               # Configuração do Expo
+└── package.json           # Dependências
+```
+
+---
+
+## 🔗 API
+
+- Base URL: `http://esbsouza.com.br/ag1/`
+- Operações: `sread`, `screate`, `supdate1`, `sdelete`
+
+---
+
+## 📋 Versão
+
+| Campo | Valor |
+|---|---|
+| Versão | 1.0.0 |
+| versionCode Android | 1 |
+| Expo SDK | 54 |
+| React Native | 0.81.5 |
+
+---
+
+*Desenvolvido por **BTech — Serviços em Informática***

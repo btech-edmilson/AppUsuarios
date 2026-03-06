@@ -1,0 +1,34 @@
+// app.config.js
+export default ({ config }) => {
+  return {
+    ...config,
+    android: {
+      ...config.android,
+      usesCleartextTraffic: true,
+    },
+  };
+};
+
+
+
+// app.config.js — VERSÃO CORRIGIDA COM FAVICON FUNCIONANDO
+
+export default ({ config }) => {
+  return {
+    ...config,
+    web: {
+      favicon: "./assets/favicon.png",  // ← ESSA LINHA FAZ O ÍCONE APARECER NA ABA!
+    },
+    plugins: [
+      ...(config.plugins || []),
+      [
+        "expo-build-properties",
+        {
+          android: {
+            usesCleartextTraffic: true,
+          },
+        },
+      ],
+    ],
+  };
+};
