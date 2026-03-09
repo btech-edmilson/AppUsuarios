@@ -76,7 +76,7 @@ export default function App() {
   const [editDtaltera, setEditDtaltera] = useState('');
   const [editAtivo, setEditAtivo] = useState<'s' | 'n'>('s');
 
-  const API_BASE = 'http://esbsouza.com.br/ag1/';
+  const API_BASE = 'http://esbsouza.com.br/APIAppUsers/';
   const hoje = new Date().toISOString().split('T')[0];
 
   // ── Drawer ──────────────────────────────────────────
@@ -154,7 +154,7 @@ const usuariosFiltrados = filtroNome.trim() === ''
         return nomeOk;
       });
 
-  const excluirUsuario = async (id: string, nome: string) => {
+const excluirUsuario = async (id: string, nome: string) => {
     Alert.alert(
       'Excluir',
       `Tem certeza que deseja excluir "${nome}"?`,
@@ -165,10 +165,13 @@ const usuariosFiltrados = filtroNome.trim() === ''
           style: 'destructive',
           onPress: async () => {
             try {
-              await axios.post(`${API_BASE}?fn=sdelete`, { id: parseInt(id) });
+              console.log('Deletando id:', id);
+              const res = await axios.get(`${API_BASE}?fn=sdelete&id=${id}`);
+              console.log('Resposta delete:', JSON.stringify(res.data));
               Alert.alert('Sucesso', 'Usuário excluído!');
               carregarUsuarios();
-            } catch {
+            } catch (e) {
+              console.log('Erro delete:', e);
               Alert.alert('Erro', 'Não foi possível excluir');
             }
           },
